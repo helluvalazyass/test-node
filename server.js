@@ -4,7 +4,7 @@ const fs = require('fs');
 
 var app = express();
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const hostname = '127.0.0.1';
 
 hbs.registerPartials(__dirname + '/views/partials')
@@ -73,6 +73,6 @@ app.get('/bad', (req, res) => {
   });
 });
 
-app.listen(port, hostname, () => {
-  console.log(`express server running at ${hostname}:${port}`)
+app.listen(port, () => {
+  console.log(`express server running at ${port}`)
 });
